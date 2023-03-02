@@ -8,7 +8,8 @@
 
 
 ### Demo Project Deployed on Amazon Lightsail
-You can access the demo project by following this link: http://16.170.25.181/
+**NOTE: Project runs off http please make sure your browser doesn't append https automatically**
+You can access the demo project by following this link: http://16.170.25.181/  
 
 ### Running the Project Locally
 
