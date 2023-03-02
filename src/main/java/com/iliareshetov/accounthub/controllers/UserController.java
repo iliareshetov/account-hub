@@ -23,13 +23,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @GetMapping("/users")
-//    public String listRegisteredUsers(Model model) {
-//        List<UserDto> users = userService.findAllUsers();
-//        model.addAttribute("users", users);
-//        return "users";
-//    }
-
     @GetMapping("/user")
     public String getUserDetails(Authentication authentication, Model model) {
         String email = authentication.getName();

@@ -5,6 +5,7 @@ import com.iliareshetov.accounthub.entity.Role;
 import com.iliareshetov.accounthub.entity.User;
 import com.iliareshetov.accounthub.repository.RoleRepository;
 import com.iliareshetov.accounthub.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
+    @Transactional
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
@@ -48,6 +49,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
     }
 
+    @Transactional
     @Override
     public void updateUser(User user) throws UsernameNotFoundException {
 
