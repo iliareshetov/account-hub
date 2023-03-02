@@ -121,4 +121,42 @@ public class UserDtoTest {
         }
     }
 
+    @Test
+    void testInvalidEmail() {
+        UserDto userDto = new UserDto(
+                null,
+                "John",
+                "Doe",
+                "johndoe@",
+                "password1",
+                LocalDate.of(1990, 1, 1)
+        );
+
+        Set<ConstraintViolation<UserDto>> violations = validator.validate(userDto);
+
+        assertEquals(1, violations.size());
+
+        for (ConstraintViolation<UserDto> violation : violations) {
+            if (violation.getPropertyPath().toString().equals("email")) {
+                assertTrue(violation.getMessage().contains("Invalid email format"));
+            }
+        }
+    }
+
+    @Test
+    void testValidEmail() {
+        UserDto userDto = new UserDto(
+                null,
+                "Jane",
+                "Doe",
+                "janedoe@example.com",
+                "password1",
+                LocalDate.of(1995, 6, 15)
+        );
+
+        Set<ConstraintViolation<UserDto>> violations = validator.validate(userDto);
+
+        assertEquals(0, violations.size());
+    }
+
 }
