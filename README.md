@@ -6,11 +6,6 @@
 4. After the user logs in, they should be presented with their account information and should be able to edit their details, including the password.
 5. The system should allow the logged-in user to log out. 
 
-
-### Demo Project Deployed on Amazon Lightsail
-**NOTE: Project runs off http please make sure your browser doesn't append https automatically**
-You can access the demo project by following this link: http://16.170.25.181/  
-
 ### Running the Project Locally
 
 * To run the project locally, create a .env file in the project root directory.
